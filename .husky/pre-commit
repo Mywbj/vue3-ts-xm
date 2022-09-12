@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# commit前回调的生命周期钩子，执行commit前执行一次 lint
+npm run lint

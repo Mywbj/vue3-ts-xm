@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# git commit -m 的生命周期钩子
+# 等执行这个命令的时候拦截掉，要通过npx cz来提交
+npx --no-install commitlint --edit
