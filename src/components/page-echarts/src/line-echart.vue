@@ -5,12 +5,11 @@
 </template>
 <script setup lang="ts">
 import { defineProps, computed, withDefaults } from 'vue'
+import * as echarts from 'echarts'
 import BJEchart from '@/base-ui/echart'
-import { IDataType } from '../types'
 const props = withDefaults(
   defineProps<{
-    data: IDataType[]
-    title: string
+    title?: string
     xLabels: string[]
     values: any[]
   }>(),
@@ -18,7 +17,7 @@ const props = withDefaults(
   }
 )
 
-const options = computed(() => {
+const options = computed<echarts.EChartsOption>(() => {
   return {
     title: {
       text: props.title

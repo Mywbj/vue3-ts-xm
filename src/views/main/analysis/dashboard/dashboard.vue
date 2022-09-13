@@ -10,7 +10,11 @@
         </BJCard>
       </el-col>
       <el-col :span="10">
-        <BJCard title="不同城市商品销量" />
+        <BJCard title="不同城市商品销量">
+          <template #content>
+            <BJMapEchart />
+          </template>
+        </BJCard>
       </el-col>
       <el-col :span="7">
         <BJCard title="分类商品数量(玫瑰图)">
@@ -45,7 +49,7 @@
 import { computed } from 'vue'
 import { useStore } from '@/store'
 import BJCard from '@/base-ui/card'
-import { BJPieEchart, BJRoseEchart, BJLineEchart, BJBarEchart } from '@/components/page-echarts'
+import { BJPieEchart, BJRoseEchart, BJLineEchart, BJBarEchart, BJMapEchart } from '@/components/page-echarts'
 
 const store = useStore()
 store.dispatch('dashboard/getDashboardDataAction')

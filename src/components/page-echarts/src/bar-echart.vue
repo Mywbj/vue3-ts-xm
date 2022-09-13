@@ -7,15 +7,13 @@
 import { defineProps, computed } from 'vue'
 import * as echarts from 'echarts'
 import BJEchart from '@/base-ui/echart'
-import { IDataType } from '../types'
 
 const props = defineProps<{
-  data: IDataType[]
   title?: string
   xLabels: string[]
   values: any[]
 }>()
-const options = computed(() => {
+const options = computed<echarts.EChartsOption>(() => {
   return {
     title: {
       text: props.title
