@@ -12,7 +12,7 @@
       <el-col :span="10">
         <BJCard title="不同城市商品销量">
           <template #content>
-            <BJMapEchart />
+            <BJMapEchart :data="mapData" />
           </template>
         </BJCard>
       </el-col>
@@ -80,6 +80,12 @@ const barData = computed(() => {
     values.push(item.goodsFavor)
   }
   return { xLabels, values }
+})
+
+const mapData = computed(() => {
+  return store.state.dashboard.addressGoodsSale.map(item => {
+    return { name: item.address, value: item.count }
+  })
 })
 
 
